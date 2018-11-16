@@ -14,8 +14,23 @@ $(document).ready(function () {
             userChoiceArray.push(userChoices.val())
             console.log(userChoices.val())
           }
-        
+        else {
+            userChoiceArray.push(0)
+            console.log(userChoicesArray);
+            
+            unansweredQuestions++;
+        }
+        for (var i = 1; i < 10; i++) {
+            if (userChoiceArray[i] === answersArray[i]) {
+                correctAnswers++;
+            }
+            else {
+                incorrectAnswers++;
+            }
+        }
           console.log(userChoiceArray)
+
+        $(".questions-section").hide();
     })
 
 
@@ -23,9 +38,8 @@ $(document).ready(function () {
 
     // for loop to attach radio buttons to the list items with different names so they can be selected correctly
     for (var i = 1; i < 10; i++) {
-        $("<input type='radio' name='" + i + "' />").prependTo('ul[class=question' + i + '] li');
         for (var j = 1; j < 5; j++) {
-            $("li input").attr("value", j)
+            $("<input type='radio' name='" + i + "'value='"+j+"' />").prependTo('ul[class=question' + i + '] li');
         }
     }
     // need two for loops in order to apply the right value attribute to each radio button for answer checking(cant without applying 4 to all with this method)
