@@ -1,0 +1,27 @@
+
+/* body styling */
+body{
+    background-image: url("../images/zelda-botw-background.jpg")
+}
+/* container styling */
+.container {
+    width: 70%;
+    opacity: .75;
+}
+
+/* list styling */
+.row ul {
+    margin: auto;
+}
+
+li {
+    display: inline;
+    margin-right: 20px;
+
+}
+
+/* header styling */
+.header {
+    margin: 1% auto;
+    border-bottom: 1px solid black;
+}
