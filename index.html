@@ -20,18 +20,20 @@
     <section class="container bg-warning">
         <h1 class="row header justify-content-center">Zelda: Ocarina of Time Trivia!!!</h1>
 
+
 <!-- name of ranch that you race at to get epona -->
 <!-- name of the  girl on the ranch link is offered to marry by her father -->
-        <section class="quesions-section">
+
+        <div id="questions-section">
             <div class="row justify-content-center">
                 <h4>Question #1 Who are the three Godesses who created the entire land of Hyrule?</h4>
             </div>
             <div class="row justify-content-center">
                 <ul class="question1">
-                    <li>Ordona, Faron, Eldin</li>
-                    <li>Hylia, Lanayru, Valoo</li>
-                    <li>Farore, Naryu, Din</li>
-                    <li>Jabun, Jabu-Jabu, Levias</li>
+                    <li class="1">Ordona, Faron, Eldin</li>
+                    <li class="2">Hylia, Lanayru, Valoo</li>
+                    <li class="3">Farore, Naryu, Din</li>
+                    <li class="4">Jabun, Jabu-Jabu, Levias</li>
                 </ul>
             </div>
             <div class="row justify-content-center">
@@ -39,10 +41,10 @@
             </div>
             <div class="row justify-content-center">
                 <ul class="question2">
-                    <li>The Hunt, Agriculture, Freedom</li>
-                    <li>Courage, Wisdom, Power</li>
-                    <li>Sky, Sea, Afterlife</li>
-                    <li>War, Arts, The Sun</li>
+                    <li class="1">The Hunt, Agriculture, Freedom</li>
+                    <li class="2">Courage, Wisdom, Power</li>
+                    <li class="3">Sky, Sea, Afterlife</li>
+                    <li class="4">War, Arts, The Sun</li>
                 </ul>
             </div>
             <div class="row justify-content-center">
@@ -50,10 +52,10 @@
             </div>
             <div class="row justify-content-center">
                 <ul class="question3">
-                    <li>Goro</li>
-                    <li>Boro</li>
-                    <li>Link</li>
-                    <li>Chief Jr.</li>
+                    <li class="1">Goro</li>
+                    <li class="2">Boro</li>
+                    <li class="3">Link</li>
+                    <li class="4">Chief Jr.</li>
                 </ul>
             </div>
             <div class="row justify-content-center">
@@ -61,10 +63,10 @@
             </div>
             <div class="row justify-content-center">
                 <ul class="question4">
-                    <li>Happy Mask Salesman</li>
-                    <li>The Guard</li>
-                    <li>The Running Man</li>
-                    <li>The Graverobber's Son</li>
+                    <li class="1">Happy Mask Salesman</li>
+                    <li class="2">The Guard</li>
+                    <li class="3">The Running Man</li>
+                    <li class="4">The Graverobber's Son</li>
                 </ul>
             </div>
             <div class="row justify-content-center">
@@ -72,10 +74,10 @@
             </div>
             <div class="row justify-content-center">
                 <ul class="question5">
-                    <li>Kokiri Sword</li>
-                    <li>Master Sword</li>
-                    <li>Faron Sword</li>
-                    <li>Deku Sword</li>
+                    <li class="1">Kokiri Sword</li>
+                    <li class="2">Master Sword</li>
+                    <li class="3">Faron Sword</li>
+                    <li class="4">Deku Sword</li>
                 </ul>
             </div>
             <div class="row justify-content-center">
@@ -83,10 +85,10 @@
             </div>
             <div class="row justify-content-center">
                 <ul class="question6">
-                    <li>Deku Sheild</li>
-                    <li>Master Sheild</li>
-                    <li>Beattle Sheild</li>
-                    <li>Mirror Sheild</li>
+                    <li class="1">Deku Sheild</li>
+                    <li class="2">Master Sheild</li>
+                    <li class="3">Beattle Sheild</li>
+                    <li class="4">Mirror Sheild</li>
                 </ul>
             </div>
             <div class="row justify-content-center">
@@ -94,10 +96,10 @@
             </div>
             <div class="row justify-content-center">
                 <ul class="question7">
-                    <li>The Hylian's</li>
-                    <li>The Deku</li>
-                    <li>The Gerudo</li>
-                    <li>The Zora</li>
+                    <li class="1">The Hylian's</li>
+                    <li class="2">The Deku</li>
+                    <li class="3">The Gerudo</li>
+                    <li class="4">The Zora</li>
                 </ul>
             </div>
             <div class="row justify-content-center">
@@ -105,10 +107,10 @@
             </div>
             <div class="row justify-content-center">
                 <ul class="question8">
-                    <li>King Dodongo</li>
-                    <li>Morpha</li>
-                    <li>Barinade</li>
-                    <li>Bongo Bongo</li>
+                    <li class="1">King Dodongo</li>
+                    <li class="2">Morpha</li>
+                    <li class="3">Barinade</li>
+                    <li class="4">Bongo Bongo</li>
                 </ul>
             </div>
             <div class="row justify-content-center">
@@ -116,17 +118,27 @@
             </div>
             <div class="row justify-content-center">
                 <ul class="question9">
-                    <li>Ganondorf</li>
-                    <li>Pictures of Zelda</li>
-                    <li>Pictures of Super Mario 64</li>
-                    <li>Pictures of the Royal Family</li>
+                    <li class="1">Ganondorf</li>
+                    <li class="2">Pictures of Zelda</li>
+                    <li class="3">Pictures of Super Mario 64</li>
+                    <li class="4">Pictures of the Royal Family</li>
                 </ul>
             </div>
             <div class ="text-center">
             <input id="submit-button" class="btn" type="submit" value="Submit">
             </div>
+        </div>
+
+        <section id="results" style="display: none;">
+            <div id="correct">Answered Correctly = 0</div>
+            <div id="incorrect">Answered Incorrectly = 0</div>
+            <div id="unanswered">Unanswered = 0</div>
+            <!-- add reset button using submit button as a guide to styling -->
+            <input id="reset-button" class="btn" type="submit" value="Go Again!?">
         </section>
 
+
+    </section>
 
 
         <!-- link JavaScript file -->

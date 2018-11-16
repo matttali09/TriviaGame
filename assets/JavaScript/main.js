@@ -1,53 +1,73 @@
 $(document).ready(function () {
     // globals
-    answersArray = [3, 2, 3, 3, 1, 4, 4, 3, 3];
-    userChoiceArray = [1];
+    answersArray = [3, 2, 3, 4, 1, 4, 4, 3, 3];
+    userChoicesArray = [];
     correctAnswers = 0;
     incorrectAnswers = 0;
     unansweredQuestions = 0;
 
-    $("#submit-button").on("click", function () {
-        for (var i = 1; i < 10; i++) {
-             var userChoices = $("[name='" + i + "']:checked")
-        }
-        if (userChoices != null) {
-            userChoiceArray.push(userChoices.val())
-            console.log(userChoices.val())
-          }
-        else {
-            userChoiceArray.push(0)
-            console.log(userChoicesArray);
-            
-            unansweredQuestions++;
-        }
-        for (var i = 1; i < 10; i++) {
-            if (userChoiceArray[i] === answersArray[i]) {
-                correctAnswers++;
-            }
-            else {
-                incorrectAnswers++;
-            }
-        }
-          console.log(userChoiceArray)
-
-        $(".questions-section").hide();
+    // create reset function and use it insde reset button click event
+    function reset() {
+        userChoicesArray = [];
+        correctAnswers = 0;
+        incorrectAnswers = 0;
+        unansweredQuestions = 0;
+        $("<input>").attr("checked", false);
+        $("#results").hide();  
+        $("#questions-section").show();
+    }
+    $("#reset-button").on("click", function () {
+        reset();
     })
 
-
-
-
-    // for loop to attach radio buttons to the list items with different names so they can be selected correctly
-    for (var i = 1; i < 10; i++) {
-        for (var j = 1; j < 5; j++) {
-            $("<input type='radio' name='" + i + "'value='"+j+"' />").prependTo('ul[class=question' + i + '] li');
+    $("#submit-button").on("click", function () {
+        for (var i = 1; i < 10; i++) {
+            var userChoices = $("[name='" + i + "']:checked")
+            // var userUnansweredQuestions = $("[name='" + i + "']:not(:checked)")
+            // console.log(userUnansweredQuestions)
+            console.log(userChoices)
+            // $("[name='"+i+"']:not(:checked)") 
+            if (userChoices != null) {
+                userChoicesArray.push(parseInt(userChoices.val()))
+                console.log(userChoicesArray)
+            }
+            // CANT GET UNANSWERED WORKING RIGHT NOW
+            // if (userChoices === NaN) {
+            //     unansweredQuestions++;
+            //     userChoicesArray.push(0)
+            //     console.log("incorrectAnswers=" + incorrectAnswers)
+            // }
         }
+
+        for (var i = 0; i < 9; i++) {
+            if (userChoicesArray[i] === answersArray[i]) {
+                correctAnswers++;
+                console.log("correctAnswers= " + correctAnswers)
+            }
+            else if (userChoicesArray[i] !== answersArray[i]) {
+                incorrectAnswers++;
+                console.log("incorrectAnswers= " + incorrectAnswers)
+            }
+        }
+        console.log(userChoicesArray)
+        console.log(answersArray)
+
+        $("#questions-section").hide();
+        $("#correct").text("Answered Correctly = " + correctAnswers);   
+        $("#incorrect").text("Answered Incorrectly = " + incorrectAnswers);
+        // gotta come back to unanswered
+        $("#unanswered").text("Unanswered = 0");
+        $("#results").show();       
+    })
+
+    // for loop to attach radio buttons to the list items with different names so they can be selected once for each question
+    for (var i = 1; i < 10; i++) {
+        $("<input type='radio' name='" + i + "' />").prependTo('ul[class=question' + i + '] li');
     }
-    // need two for loops in order to apply the right value attribute to each radio button for answer checking(cant without applying 4 to all with this method)
-    // for (var i = 1; i < 10; i++) {
-        
-    //     for (var j = 1; j < 5; j++) {
-    //         $('ul[class=question' + i + '] li input').attr("value", j)
-    //      }
-    // }
+    // Create a class for each li to target the input correctly and assign values 1-4 for the radio buttons applied
+    for (var j = 1; j < 5; j++) {
+        $("." + j + " input").attr("value", j)
+    }
+
 
 });
