@@ -1,12 +1,24 @@
 
 /* body styling */
 body{
-    background-image: url("../images/zelda-botw-background.jpg")
+    text-align: center;
+    background-image: url("../images/Zelda-cast.jpg")
+}
+.bg-warning{
+    background-color: #231f1f!important;
 }
 /* container styling */
 .container {
     width: 70%;
-    opacity: .75;
+    opacity: .9;
+    margin-top: 1%;
+    margin-bottom: 5%;
+    color: gold;
+}
+
+h4{
+    margin-top: .5%;
+    border-bottom: .5px solid gold
 }
 
 /* list styling */
@@ -23,5 +35,24 @@ li {
 /* header styling */
 .header {
     margin: 1% auto;
-    border-bottom: 1px solid black;
+    border-bottom: 1px solid red;
+}
+
+/* button styling */
+.btn {
+    margin: .5% auto;
+    background-color: #b03400;
+    color: #e5b468;
+}
+
+@media screen and (max-width: 1168px) {
+    .container {
+        width: 95%
+    }
+}
+
+@media screen and (max-width: 992px) {
+    li {
+        display: block;
+    }
 }
