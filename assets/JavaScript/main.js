@@ -5,20 +5,31 @@ $(document).ready(function () {
     correctAnswers = 0;
     incorrectAnswers = 0;
     unansweredQuestions = 0;
+    var timer =90;
 
-    // create reset function and use it insde reset button click event
-    function reset() {
-        userChoicesArray = [];
-        correctAnswers = 0;
-        incorrectAnswers = 0;
-        unansweredQuestions = 0;
-        $("<input>").attr("checked", false);
-        $("#results").hide();  
-        $("#questions-section").show();
-    }
-    $("#reset-button").on("click", function () {
-        reset();
-    })
+    // set timer update function for the reset function and initialize it on page load
+    var clock = $("#display")
+    var clockCount;
+    timerCounter = function () {
+        clockCount = setInterval(function () {
+            timer--;
+            clock.text(timer+" Seconds Left!")
+            if (timer < 1) {
+                // copy over the same functions to hide and display results, no alert, alerts are annoying.
+                clock.text("90 Seconds Left!")
+                $("#questions-section").hide();
+                $("#correct").text("Answered Correctly = " + correctAnswers);
+                $("#incorrect").text("Answered Incorrectly = " + incorrectAnswers);
+                // gotta come back to unanswered
+                $("#unanswered").text("Unanswered = 0");
+                $("#results").show();
+            };
+        }, 1000);
+    },
+    timerCounter();
+
+
+
 
     $("#submit-button").on("click", function () {
         for (var i = 1; i < 10; i++) {
@@ -27,22 +38,25 @@ $(document).ready(function () {
             // console.log(userUnansweredQuestions)
             console.log(userChoices)
             // $("[name='"+i+"']:not(:checked)") 
-            if (userChoices != null) {
+            if (userChoices !== NaN) {  
                 userChoicesArray.push(parseInt(userChoices.val()))
                 console.log(userChoicesArray)
             }
             // CANT GET UNANSWERED WORKING RIGHT NOW
-            // if (userChoices === NaN) {
-            //     unansweredQuestions++;
-            //     userChoicesArray.push(0)
-            //     console.log("incorrectAnswers=" + incorrectAnswers)
-            // }
+            if (userChoices === NaN) {
+                userChoicesArray.push(0)
+                console.log(userChoicesArray)
+            }
         }
 
         for (var i = 0; i < 9; i++) {
             if (userChoicesArray[i] === answersArray[i]) {
                 correctAnswers++;
                 console.log("correctAnswers= " + correctAnswers)
+            }
+            else if (userChoicesArray[i] === 0) {
+                unansweredQuestions++;
+                console.log("unansweredQuestions= " + unansweredQuestions)
             }
             else if (userChoicesArray[i] !== answersArray[i]) {
                 incorrectAnswers++;
@@ -51,13 +65,31 @@ $(document).ready(function () {
         }
         console.log(userChoicesArray)
         console.log(answersArray)
-
+        clock.text("90 Seconds Left!")
         $("#questions-section").hide();
-        $("#correct").text("Answered Correctly = " + correctAnswers);   
+        $("#correct").text("Answered Correctly = " + correctAnswers);
         $("#incorrect").text("Answered Incorrectly = " + incorrectAnswers);
         // gotta come back to unanswered
-        $("#unanswered").text("Unanswered = 0");
-        $("#results").show();       
+        $("#unanswered").text("Unanswered = " + unansweredQuestions);
+        $("#results").show();
+    })
+
+
+    // create reset function and use it insde reset button click event
+    function reset() {
+        userChoicesArray = [];
+        correctAnswers = 0;
+        incorrectAnswers = 0;
+        unansweredQuestions = 0;
+        $("*:radio").prop("checked", false);
+        $("#results").hide();
+        clearInterval(clockCount);
+        timer = 90;
+        timerCounter();
+        $("#questions-section").show();
+    }
+    $("#reset-button").on("click", function () {
+        reset();
     })
 
     // for loop to attach radio buttons to the list items with different names so they can be selected once for each question
@@ -68,6 +100,5 @@ $(document).ready(function () {
     for (var j = 1; j < 5; j++) {
         $("." + j + " input").attr("value", j)
     }
-
 
 });

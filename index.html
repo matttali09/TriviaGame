@@ -5,15 +5,15 @@
     <!-- metas for phones -->
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Trivia Game!</title>
+    <title>Zelda OoT Trivia Game!</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- apply reset, then bootstrap, then my additional styling, then jquery library -->
     <link rel="stylesheet" type="text/css" media="screen" href="assets/css/reset.css">
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+        crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
         crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" media="screen" href="assets/css/main.css">
-    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-        crossorigin="anonymous"></script>
 </head>
 
 <body>
@@ -21,10 +21,15 @@
         <h1 class="row header justify-content-center">Zelda: Ocarina of Time Trivia!!!</h1>
 
 
-<!-- name of ranch that you race at to get epona -->
-<!-- name of the  girl on the ranch link is offered to marry by her father -->
+        <!-- name of ranch that you race at to get epona -->
+        <!-- name of the  girl on the ranch link is offered to marry by her father -->
 
         <div id="questions-section">
+            <div class="text-center">
+                <div id="display">90 Seconds Left!</div>
+                <input id="music-button" class="btn" type="music" value="Forest Theme!">
+            </div>
+
             <div class="row justify-content-center">
                 <h4>Question #1 Who are the three Godesses who created the entire land of Hyrule?</h4>
             </div>
@@ -114,7 +119,8 @@
                 </ul>
             </div>
             <div class="row justify-content-center">
-                <h4>Question #9 Bonus: What can you see if you look into the right hallway windows when you first meet Zelda?</h4>
+                <h4>Question #9 Bonus: What can you see if you look into the right hallway windows when you first meet
+                    Zelda?</h4>
             </div>
             <div class="row justify-content-center">
                 <ul class="question9">
@@ -124,8 +130,8 @@
                     <li class="4">Pictures of the Royal Family</li>
                 </ul>
             </div>
-            <div class ="text-center">
-            <input id="submit-button" class="btn" type="submit" value="Submit">
+            <div class="text-center">
+                <input id="submit-button" class="btn" type="submit" value="Submit">
             </div>
         </div>
 
@@ -134,15 +140,15 @@
             <div id="incorrect">Answered Incorrectly = 0</div>
             <div id="unanswered">Unanswered = 0</div>
             <!-- add reset button using submit button as a guide to styling -->
-            <input id="reset-button" class="btn" type="submit" value="Go Again!?">
+            <input id="reset-button" class="btn" type="reset" value="Go Again!?">
         </section>
 
 
     </section>
 
 
-        <!-- link JavaScript file -->
-        <script src="assets/JavaScript/main.js"></script>
+    <!-- link JavaScript file -->
+    <script src="assets/JavaScript/main.js"></script>
 </body>
 
 </html>

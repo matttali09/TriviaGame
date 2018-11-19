@@ -38,6 +38,12 @@ li {
     border-bottom: 1px solid red;
 }
 
+/* timer styling */
+#display {
+    font-size: 24px;
+    font-weight: bold;
+}
+
 /* button styling */
 .btn {
     margin: .5% auto;
