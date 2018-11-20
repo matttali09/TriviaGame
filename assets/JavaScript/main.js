@@ -48,7 +48,7 @@ $(document).ready(function () {
                 userChoicesArray.push(parseInt(userChoices.val()))
                 console.log(userChoicesArray)
             }
-            // CANT GET UNANSWERED WORKING RIGHT NOW
+            // CANT GET UNANSWERED WORKING RIGHT NOW tried several different ways, gunna have to come back to it
             if (userChoices === NaN) {
                 userChoicesArray.push(0)
                 console.log(userChoicesArray)
