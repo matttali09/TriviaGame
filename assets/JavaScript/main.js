@@ -6,6 +6,21 @@ $(document).ready(function () {
     incorrectAnswers = 0;
     unansweredQuestions = 0;
     var timer =90;
+    var audioElement = document.createElement("audio");
+
+    // Set it's source to the location
+    // of our Captain Planet theme song file.
+    audioElement.setAttribute("src", "assets/zelda-music/lost-woods-mix.mp3");
+
+    // Theme Button
+    $("#music-button").on("click", function() {
+      audioElement.play();
+    });
+
+    // Pause Button
+    $("#pause-button").on("click", function() {
+      audioElement.pause();
+    });
 
     // set timer update function for the reset function and initialize it on page load
     var clock = $("#display")
