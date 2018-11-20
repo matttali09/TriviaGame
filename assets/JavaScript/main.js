@@ -5,7 +5,7 @@ $(document).ready(function () {
     correctAnswers = 0;
     incorrectAnswers = 0;
     unansweredQuestions = 0;
-    var timer =90;
+    var timer = 90;
     var audioElement = document.createElement("audio");
 
     // Set it's source to the location
@@ -17,7 +17,7 @@ $(document).ready(function () {
       audioElement.play();
     });
 
-    // Pause Button
+    // Pause Button (nawww listen!)
     $("#pause-button").on("click", function() {
       audioElement.pause();
     });
@@ -30,23 +30,14 @@ $(document).ready(function () {
             timer--;
             clock.text(timer+" Seconds Left!")
             if (timer < 1) {
-                // copy over the same functions to hide and display results, no alert, alerts are annoying.
-                clock.text("90 Seconds Left!")
-                $("#questions-section").hide();
-                $("#correct").text("Answered Correctly = " + correctAnswers);
-                $("#incorrect").text("Answered Incorrectly = " + incorrectAnswers);
-                // gotta come back to unanswered
-                $("#unanswered").text("Unanswered = 0");
-                $("#results").show();
+                clearInterval(clockCount);
+                checkAnswers();
             };
         }, 1000);
     },
     timerCounter();
 
-
-
-
-    $("#submit-button").on("click", function () {
+    checkAnswers = function () {
         for (var i = 1; i < 10; i++) {
             var userChoices = $("[name='" + i + "']:checked")
             // var userUnansweredQuestions = $("[name='" + i + "']:not(:checked)")
@@ -87,6 +78,11 @@ $(document).ready(function () {
         // gotta come back to unanswered
         $("#unanswered").text("Unanswered = " + unansweredQuestions);
         $("#results").show();
+    }
+
+
+    $("#submit-button").on("click", function () {
+        checkAnswers();
     })
 
 
